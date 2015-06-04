@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>הוראות התקנה: &mdash; EDAA ControlRoom מדריך למשתמש 1.1.1 </title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <SCRIPT LANGUAGE="JavaScript">
+
+function Copytext() 
+{
+holdtext.innerText = ct1.innerText;
+Copied = holdtext.createTextRange();
+Copied.execCommand("Copy");
+}
+
+</SCRIPT>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="EDAA ControlRoom מדריך למשתמש 1.1.1 " href="index.html" />
+    <link rel="prev" title="הוספת תרחישים:" href="addScenario.html" /> 
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+<!-- Optional: Include the jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div class="related">
+      <h3>ניווט</h3>
+      <ul class="pager">
+	         <li class="next"> <a href="addScenario.html" title="הוספת תרחישים:"  accesskey="P">&rarr; הקודם</a></li>
+	         <li class="next disabled"><a>הבא &larr;</a></li>
+		<li class="previous"><a href="index.html">EDAA ControlRoom מדריך למשתמש 1.1.1 </a></li>  
+ <li class="previous"><a href="genindex.html" title="אינדקס כללי" accesskey="I">אינדקס</a></li>        
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="id1">
+    <h1 class="page-header">הוראות התקנה:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+        <p>
+             <ul>
+                <li>ביכולתך להריץ את EDAA Server בכל מכשיר מבוסס Windows או Unix. ההנחיות הבאות רלוונטיות ל-Windows.</li>
+                <li>EDAA Server רץ כשירות NT באמצעות שירות Tomcat7.</li>
+             </ul>
+        </p>
+  </div>
+  <div class="section" id="id2">
+     <h2 class="page-header">צעדים ראשונים</h2>
+     <ol>
+         <li>התקן את <a href="https://java.com/en/download/index.jsp" alt="java7"><b>Java 7</b></a> </li>
+		 <li>הרץ את הקובץ <a href="downloads/apache-tomcat-7.0.55.exe"><b>apache-tomcat-7.0.55.exe</b> </a></li>
+		 <li>חלץ (בעזרת <a href="http://www.rarlab.com/download.htm" alt="WinRar Download"><b>WinRar</b></a> ודומותיה) את הקובץ <a href="downloads/EDAA-server.zip"><b>EDAA-server.zip</b></a> אל התיקייה  <b>C:\Program Files\Apache Software Foundation\Tomcat 7.0\webapps</b>
+		 <p>
+		 וודא שכל התיקיות הבאות נמצאות תחת <b>webapps</b>:
+		 <ul>
+		 <li> <b>ControlRoom</b>
+<ul> 
+<li> <b>app</b> </li>
+<li><b> bower_components</b> </li>
+<li><b> META-INF</b></li>
+<li><b> WEB-INF</b></li>
+</p>
+</ul>
+		 </li>
+		 </ul>
+		 </li>
+		 <li>חלץ את <a href="downloads/EDAA-conf.7z"><b>EDAA-conf.7z</b></a> לתוך  <b>C:\Users\User\ControlRoom</b></li>
+		 <li>
+		 <ul>
+		 <li>בשורת הפקודה הרץ את הפקודה: <b>cd C:\Program Files\Apache Software Foundation\Tomcat 7.0\bin</b></li>
+		 <li>כעת הרץ את הפקודה <b>Tomcat7w.exe</b>
+		 <p><img src="pictures\cmd1.png" alt="C:\Program Files\Apache Software Foundation\Tomcat 7.0\bin>Tomcat7w.exe" /></p>
+		 </li>
+		 </ul>
+		 </li>
+		 <li>הוסף את הביטוי הבא: <b>-DCR_BASE_DIR=c:\Users\User\ControlRoom</b> ל- <b>Java Options</b> 
+		<figure class="well" style="width:30%;"> 
+<img src="pictures/apache.png" alt="apache-screenshot" /> <figcaption>תרשים א' - הוספת הנתיב ל Tomcat7</figcaption>
+</figure> 
+
+<div class="panel panel-primary" >
+  <div class="panel-heading"><span class="glyphicon glyphicon-info-sign"></span><strong> שים לב: </strong></div>
+  <div class="panel-body">
+  <em>
+חשוב מאוד שהנתיב ימצא במחשבך, תוכל לשנות את הנתיב לכל נתיב שנמצא במחשבך. (דבר זה יכלול גם את קבצי הקונפיגורציה)
+</em>
+ </div>
+ </div>
+		</li>
+		<li>פתח את הקובץ C:\Program Files\Apache Software Foundation\Tomcat 7.0\conf\server.xml .<br />
+		ערוך את התגית Connector והוסף URIEncoding="UTF-8":
+		<br />
+		<div style="direction: ltr;">
+		<code>
+		&lt;Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" URIEncoding="UTF-8"  / &gt;
+		</code>
+		</div>
+		<figure class="well"  style="margin:0 auto !important; width:50%;">
+		<img src="pictures\services.png"  alt="windows-services screenshot" />
+		<figcaption>השירות Tomcat7 ב- Windows Services</figcaption>
+		</figure>
+		</li>
+		<li><em>כעת tomcat7 מותקן בשירותי Windows ו-EDAA-server מותקן במחשבך.</em></li>
+		<li>
+קבצי הקונפיגורציה(תצורה) ממוקמים בתיקייה 
+<b>
+c:\Users\User\ControlRoom
+</b>
+		</li>
+<li>
+וודא שברשותך הקובץ 
+<b>
+controlroom.properties
+</b>
+<div class="panel panel-default">
+      <div class="panel-heading" style="direction:rtl">תצורת ברירת המחדל של קובץ התצורה
+      controlroom.properties</div>
+      <div class="panel-body">
+        <table class="table table-striped table-bordered table-hover table-condensed" style="direction:ltr; text-align:center; width:100%;" >
+          <tr><td> username </td> <td> edaatech@gmail.com</td></tr>
+          <tr><td>password</td><td>123456789!</td></tr>
+          <tr><td>mail.smtp.host</td><td> smtp.gmail.com</td></tr>
+          <tr><td>mail.smtp.port</td><td> 587</td></tr>
+          <tr><td>mail.debug</td><td>false</td></tr>
+          <tr><td>mail.subject</td><td>restore password</td></tr>
+          <tr><td>mail.admin</td><td>edaatech@gmail.com</td></tr>
+          <tr><td>statusScanPeriod</td><td>10</td></tr>
+        </table>
+      </div>
+    </div>
+</li>    
+<li>
+<span class="panel-title">ישנם שני משתמשי ברירת מחדל מובנים במערכת: </span>
+<table id="dusert" class="table table-condensed table-hover" style="direction:rtl; text-align:left;">
+<tr style="text-align:right;"><th style="text-align:right;">שם</th><th style="text-align:right;">שם משתמש</th><th style="text-align:right;">סיסמה</th></tr>
+<tr><td style="text-align:right;">admin</td><td style="text-align:right;">admin@edaatech.com</td><td style="text-align:right;">12345</td></tr>
+<tr><td style="text-align:right;">control</td><td style="text-align:right;">control@edaatech.com</td><td style="text-align:right;">12345</td></tr>
+</table>
+ </li>
+ <li>
+ השתמש בחשבון admin כדי להתחיל בעבודתך וליצור משתמשים. <br />
+ דף ההתחברות הוא 
+ <b>
+ http://&lt;your-server-dns&gt;/ControlRoom/app
+ </b>
+ <figure class="well" style="width:30%; text-align:center;">
+ <img src="pictures/login.png" alt="login-page"  />
+ <figcaption>דף ההתחברות</figcaption>
+ </figure>
+ <figure class="well" style="width:30%; text-align:center;">
+ <img src="pictures/login.png" alt="login-page"  />
+ <figcaption>דף ההתחברות</figcaption>
+ </figure>
+ </li>
+	</ol>
+  </div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>הנושא הקודם</h4>
+  <p class="topless"><a href="addScenario.html"
+                        title="הקודם chapter">הוספת תרחישים:</a></p>
+  <h3>הדף הנוכחי</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/install.txt"
+           rel="nofollow">הצג מקור</a></li>
+  </ul>
+<div id="searchbox" style="display: none" >
+  <h3>חיפוש מהיר</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="חפש" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    הכנס מונחי חיפוש כדי לקבל עוד מידע.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>ניווט</h3>
+      <ul class="pager">
+	         <li class="next"> <a href="addScenario.html" title="הוספת תרחישים:"  accesskey="P">&rarr; הקודם</a></li>
+	         <li class="next disabled"><a>הבא &larr;</a></li>
+		<li class="previous"><a href="index.html">EDAA ControlRoom מדריך למשתמש 1.1.1 </a></li>  
+ <li class="previous"><a href="genindex.html" title="אינדקס כללי" accesskey="I">אינדקס</a></li>        
+      </ul>
+    </div>  
+    <div class="footer">
+        &copy; Copyright 2014, סער זר אביב EDAA בע&#34;מ.
+
+    </div>
+	<TEXTAREA ID="holdtext" STYLE="display:none;">
+</TEXTAREA>
+  </body>
+</html>
